@@ -7,15 +7,15 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-			children: <Widget>[
-				Center(
-					child: Image.asset(
-						'lib/assets/images/careclock.png',
-						height: 225.h,
-						width: 232.w,
-					)
-				),
-			],
-		);
+      children: <Widget>[
+        Center(
+          child: Image.asset(
+            'lib/assets/images/careclock.png',
+            height: 225.h,
+            width: 232.w,
+          ),
+        ),
+      ],
+    );
   }
 }

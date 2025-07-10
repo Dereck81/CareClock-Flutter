@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
-
   final Widget child;
   final Color backgroundColor;
   final Color? borderColor;
@@ -20,7 +19,7 @@ class CustomButton extends StatefulWidget {
     super.key,
     required this.child,
     required this.onPressed,
-		this.backgroundColor = Colors.transparent,
+    this.backgroundColor = Colors.transparent,
     this.childAlignment,
     this.width,
     this.height,
@@ -30,7 +29,7 @@ class CustomButton extends StatefulWidget {
     this.borderRadius = 0,
     this.borderWidth = 0,
     this.marginX = 0,
-    this.marginY = 0
+    this.marginY = 0,
   });
 
   @override
@@ -60,7 +59,7 @@ class _CustomButtonState extends State<CustomButton> {
             left: widget.marginX!,
             right: widget.marginX!,
             top: widget.marginY!,
-            bottom: widget.marginY!
+            bottom: widget.marginY!,
           ),
           padding: EdgeInsets.only(
             left: widget.paddingX!,
@@ -72,9 +71,9 @@ class _CustomButtonState extends State<CustomButton> {
             color: widget.backgroundColor,
             borderRadius: BorderRadius.circular(widget.borderRadius!),
             border: Border.all(
-              width: widget.borderWidth!, 
-              color: widget.borderColor ?? widget.backgroundColor
-            )
+              width: widget.borderWidth!,
+              color: widget.borderColor ?? widget.backgroundColor,
+            ),
           ),
           child: widget.child,
         ),

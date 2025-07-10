@@ -5,42 +5,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SecondaryButton extends StatelessWidget {
-	final double width;
-	final VoidCallback onPressed;
-	final String text;
-	final double marginX;
-	final double marginY;
+  final double width;
+  final VoidCallback onPressed;
+  final String text;
+  final double marginX;
+  final double marginY;
 
-	const SecondaryButton({
-		super.key,
-		required this.width,
-		required this.onPressed,
-		required this.text,
-		this.marginX = 0,
-		this.marginY = 0,
-	});
+  const SecondaryButton({
+    super.key,
+    required this.width,
+    required this.onPressed,
+    required this.text,
+    this.marginX = 0,
+    this.marginY = 0,
+  });
 
-	@override
-	Widget build(BuildContext context) {
-		return CustomButton(
-			backgroundColor: AppColors.background.value,
-         borderColor: AppColors.primary.value,
-				 borderWidth: 2.w,
-         borderRadius: 50.r,
-         width: width,
-         marginY: marginY,
-				 marginX: marginX,
-         paddingY: 10.h,
-         onPressed: onPressed,
-         childAlignment: Alignment.center,
-         child: Text(
-            text,
-            style: TextStyle(
-               color: Colors.black,
-               fontSize: FontScaler.fromSize(FontSize.lg),
-               fontWeight: FontWeight.bold,
-            ),
-         ),
-		);
-	}
+  @override
+  Widget build(BuildContext context) {
+    return CustomButton(
+      backgroundColor: AppColors.background.value,
+      borderColor: AppColors.primary.value,
+      borderWidth: 2.w,
+      borderRadius: 50.r,
+      width: width,
+      marginY: marginY,
+      marginX: marginX,
+      paddingY: 10.h,
+      onPressed: onPressed,
+      childAlignment: Alignment.center,
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: FontScaler.fromSize(FontSize.lg),
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
 }

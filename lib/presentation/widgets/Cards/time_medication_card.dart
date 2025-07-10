@@ -11,32 +11,30 @@ class TimeMedicationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-			marginX: 15.w,
-			marginY: 10.w,
-			paddingY: 15.w,
-			paddingX: 12.w,
-			width: double.infinity,
-			child: Column(
-				mainAxisSize: MainAxisSize.min,
-				crossAxisAlignment: CrossAxisAlignment.start,
-				children: <Widget>[
-					Container(
-						padding: EdgeInsets.symmetric(
-							horizontal: 15.w
-						),
-						child: Text(
-							'8:00',
-							style: TextStyle(
-								color: AppColors.textColor.value,
-								fontSize: FontScaler.fromSize(FontSize.xl3)
-							),
-						),
-					),
-					MedicationItemCard(),
-					MedicationItemCard(),
-					MedicationItemCard()
-				],
-			)
-		);
+      marginX: 15.w,
+      marginY: 10.w,
+      paddingY: 15.w,
+      paddingX: 12.w,
+      width: double.infinity,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 15.w),
+            child: Text(
+              '8:00',
+              style: TextStyle(
+                color: AppColors.textColor.value,
+                fontSize: FontScaler.fromSize(FontSize.xl3),
+              ),
+            ),
+          ),
+          MedicationItemCard(),
+          MedicationItemCard(),
+          MedicationItemCard(),
+        ],
+      ),
+    );
   }
 }

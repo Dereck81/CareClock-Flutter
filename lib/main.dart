@@ -8,26 +8,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() => runApp(CareClock());
 
 class CareClock extends StatelessWidget {
-	const CareClock({super.key});
+  const CareClock({super.key});
 
-	@override
-	Widget build(BuildContext context) {
-		return ScreenUtilInit(
-			designSize: Size(460, 880),
-			minTextAdapt: true,
-			splitScreenMode: true,
-			builder: (_, child) {
-				NavbarColor.configurationNavBarColor();
-				return MaterialApp.router(
-					title: 'CareClock',
-					routerConfig: AppGoRouter.appRouter(),
-					debugShowCheckedModeBanner: false,
-					themeMode: ThemeMode.system,
-					theme: AppTheme.getLightTheme(),
-					darkTheme: AppTheme.getDarkTheme(),
-				);
-			},
-			child: const EmailInputScreen(),
-		);
-	}
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: Size(460, 880),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, child) {
+        NavbarColor.configurationNavBarColor();
+        return MaterialApp.router(
+          title: 'CareClock',
+          routerConfig: AppGoRouter.appRouter(),
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.system,
+          theme: AppTheme.getLightTheme(),
+          darkTheme: AppTheme.getDarkTheme(),
+        );
+      },
+      child: const EmailInputScreen(),
+    );
+  }
 }
