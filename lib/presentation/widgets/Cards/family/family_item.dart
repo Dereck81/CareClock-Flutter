@@ -31,7 +31,7 @@ class FamilyItem extends StatelessWidget {
               errorBuilder: (context, error, stackTrace) {
                 return Icon(
                   PhosphorIcons.userCircle(PhosphorIconsStyle.fill),
-                  size: 225.sp,
+                  size: 50.sp,
                 ); // o imagen por defecto
               },
             ),
