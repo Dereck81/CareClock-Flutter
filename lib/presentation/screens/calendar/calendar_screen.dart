@@ -1,4 +1,4 @@
-import 'package:careclock/presentation/widgets/Cards/time_medication_card.dart';
+import 'package:careclock/presentation/widgets/Cards/medication/time_medication_card.dart';
 import 'package:flutter/material.dart';
 
 class CalendarScreen extends StatefulWidget {

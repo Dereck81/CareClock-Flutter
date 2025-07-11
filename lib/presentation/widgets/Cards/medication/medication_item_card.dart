@@ -6,16 +6,63 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+enum MedicationItemCardStatus { overdue, pending, taken }
+
 class MedicationItemCard extends StatelessWidget {
-  const MedicationItemCard({super.key});
+  final MedicationItemCardStatus status;
+
+  const MedicationItemCard({
+    super.key,
+    this.status = MedicationItemCardStatus.overdue,
+  });
+
+  ({
+    IconData iconData,
+    Color iconColor,
+    Color borderColor,
+    Color backgroundColor,
+    Color textColor,
+  })
+  _getIconAndColor(MedicationItemCardStatus status) {
+    switch (status) {
+      case MedicationItemCardStatus.overdue:
+        return (
+          iconData: PhosphorIcons.warningCircle(PhosphorIconsStyle.fill),
+          iconColor: AppColors.danger.value,
+          borderColor: AppColors.dangerBorder.value,
+          backgroundColor: AppColors.danger.value,
+          textColor: AppColors.textColorSecondary.value,
+        );
+      case MedicationItemCardStatus.pending:
+        return (
+          iconData: PhosphorIcons.circle(PhosphorIconsStyle.fill),
+          iconColor: AppColors.background.value,
+          borderColor: AppColors.primary.value,
+          backgroundColor: AppColors.background.value,
+          textColor: AppColors.textColor.value,
+        );
+      default: //taken
+        return (
+          iconData: PhosphorIcons.circle(PhosphorIconsStyle.fill),
+          iconColor: AppColors.primary.value,
+          borderColor: AppColors.primary.value,
+          backgroundColor: AppColors.background.value,
+          textColor: AppColors.textColor.value,
+        );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final (:iconData, :iconColor, :borderColor, :backgroundColor, :textColor) =
+        _getIconAndColor(status);
+
     return CustomButton(
       onPressed: () => {},
       child: CustomContainer(
         marginY: 5.h,
         paddingY: 5.h,
+        color: backgroundColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,7 +84,7 @@ class MedicationItemCard extends StatelessWidget {
                 Text(
                   'Paracetamol, Tabletas',
                   style: TextStyle(
-                    color: AppColors.textColor.value,
+                    color: textColor,
                     fontSize: FontScaler.fromSize(FontSize.lg),
                   ),
                 ),
@@ -48,7 +95,7 @@ class MedicationItemCard extends StatelessWidget {
                     Text(
                       '2',
                       style: TextStyle(
-                        color: AppColors.textColor.value,
+                        color: textColor,
                         fontSize: FontScaler.fromSize(FontSize.bs),
                       ),
                     ),
@@ -69,6 +116,20 @@ class MedicationItemCard extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+            Spacer(),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              padding: EdgeInsets.all(2.dm),
+              alignment: Alignment.center,
+              width: 50.w,
+              height: 50.h,
+              decoration: BoxDecoration(
+                color: AppColors.background.value,
+                shape: BoxShape.circle,
+                border: BoxBorder.all(color: borderColor),
+              ),
+              child: Icon(iconData, color: iconColor, size: 40.sp),
             ),
           ],
         ),

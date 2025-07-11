@@ -10,10 +10,12 @@ class CustomContainer extends StatelessWidget {
   final double? paddingY;
   final double? width;
   final double? height;
+  final Color? color;
 
   const CustomContainer({
     super.key,
     required this.child,
+    this.color,
     this.marginX = 0,
     this.marginY = 0,
     this.paddingX = 0,
@@ -30,6 +32,7 @@ class CustomContainer extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: paddingY!, horizontal: paddingX!),
       margin: EdgeInsets.symmetric(vertical: marginY!, horizontal: marginX!),
       decoration: BoxDecoration(
+        color: color,
         borderRadius: BorderRadius.circular(40.r),
         border: BoxBorder.all(color: AppColors.stroke.value, width: 2.w),
       ),

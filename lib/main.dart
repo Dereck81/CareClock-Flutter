@@ -3,9 +3,14 @@ import 'package:careclock/config/app_theme.dart';
 import 'package:careclock/config/navbar_color.dart';
 import 'package:careclock/presentation/screens/login/email_input_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() => runApp(CareClock());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(CareClock());
+}
 
 class CareClock extends StatelessWidget {
   const CareClock({super.key});

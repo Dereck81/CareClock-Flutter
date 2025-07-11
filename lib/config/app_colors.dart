@@ -8,7 +8,9 @@ enum AppColors {
   stroke(Color(0XFFE9E9E9)),
   background(Color(0XFFFFFFFF)),
   dangerBorder(Color(0XFFA70000)),
-  textColor(Color(0XFF000000));
+  danger(Color(0XFFFF3F51)),
+  textColor(Color(0XFF000000)),
+  textColorSecondary(Color(0XFFFFFFFF));
 
   final Color value;
 

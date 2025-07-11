@@ -26,7 +26,7 @@ class AppGoRouter {
 
   static GoRouter appRouter() {
     return GoRouter(
-      initialLocation: AppGoRouter.home,
+      initialLocation: AppGoRouter.authSelection,
       routes: <GoRoute>[
         GoRoute(
           path: AppGoRouter.authSelection,

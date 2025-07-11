@@ -1,5 +1,6 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/font_scaler.dart';
+import 'package:careclock/presentation/screens/add-reminder/add_reminder_type_screen.dart';
 import 'package:careclock/presentation/screens/calendar/calendar_screen.dart';
 import 'package:careclock/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     CalendarScreen(),
     Center(child: Text("Progreso")),
-    Center(child: Text("Agregar")),
+    AddReminderTypeScreen(),
     ProfileScreen(),
   ];
 
