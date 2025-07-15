@@ -28,7 +28,7 @@ class PrimaryButton extends StatelessWidget {
       width: width,
       marginY: marginY,
       marginX: marginX,
-      paddingY: 10.h,
+      paddingY: 12.h,
       onPressed: onPressed,
       childAlignment: Alignment.center,
       child: Text(

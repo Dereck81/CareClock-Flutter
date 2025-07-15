@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
@@ -13,7 +15,7 @@ class CustomButton extends StatefulWidget {
   final double? marginX;
   final double? marginY;
   final Alignment? childAlignment;
-  final VoidCallback onPressed;
+  final FutureOr<void> Function() onPressed;
 
   const CustomButton({
     super.key,
@@ -50,7 +52,7 @@ class _CustomButtonState extends State<CustomButton> {
       },
       child: AnimatedScale(
         scale: _pressed ? 0.95 : 1,
-        duration: Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 150),
         child: Container(
           width: widget.width,
           height: widget.height,

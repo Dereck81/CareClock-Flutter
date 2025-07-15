@@ -1,7 +1,7 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
-import 'package:careclock/core/utils/regex_patterns.dart';
+import 'package:careclock/core/utils/regex/regex_patterns.dart';
 import 'package:careclock/presentation/widgets/Bars/progress_bar.dart';
 import 'package:careclock/presentation/widgets/Buttons/primary_button.dart';
 import 'package:careclock/presentation/widgets/Buttons/secondary_button.dart';
@@ -62,14 +62,15 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
                 FormField<bool>(
                   initialValue: acceptTerms,
                   onSaved: (value) =>
-                    setState(() => acceptTerms = value ?? false),
+                      setState(() => acceptTerms = value ?? false),
                   validator: (value) {
                     if (!(value ?? false)) {
                       terms = AppColors.dangerBorder.value;
+                      return '';
                     } else {
                       terms = Colors.black;
+                      return null;
                     }
-                    return null;
                   },
                   builder: (field) {
                     return Row(
@@ -90,7 +91,7 @@ class _EmailInputScreenState extends State<EmailInputScreen> {
                           activeColor: AppColors.primary.value,
                           onChanged: (value) {
                             if ((value ?? false)) terms = Colors.black;
-                            field.didChange(value);
+                            field.didChange(value ?? false);
                           },
                         ),
                       ],

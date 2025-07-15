@@ -1,9 +1,11 @@
 import 'package:careclock/config/app_colors.dart';
+import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
 import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class AddReminderTypeScreen extends StatelessWidget {
   const AddReminderTypeScreen({super.key});
@@ -21,7 +23,8 @@ class AddReminderTypeScreen extends StatelessWidget {
         paddingY: 10.h,
         marginX: 15.w,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           spacing: 10.w,
           children: <Widget>[
             ClipRRect(
@@ -71,7 +74,9 @@ class AddReminderTypeScreen extends StatelessWidget {
           'lib/assets/images/medication.jpg',
           'Medicación',
           'Agrega recordatorios para pastillas, ampollas, jarabes, etc.',
-          () {},
+          () {
+            context.push(AppGoRouter.medicationSearch);
+          },
         ),
         _button(
           'lib/assets/images/activity.png',

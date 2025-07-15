@@ -25,13 +25,15 @@ class ProgressBar extends StatelessWidget {
       builder: (context, constraints) {
         double fullWidth = (width == double.infinity)
             ? constraints.maxWidth
-            : width;
+            : width.w;
 
         double calculatedProgress = -1;
 
-        if (progress >= 100) calculatedProgress = fullWidth.w;
+        if (progress >= 100) calculatedProgress = fullWidth;
         if (progress <= 0) calculatedProgress = 0;
-        if (calculatedProgress == -1) calculatedProgress = (fullWidth * (progress / 100)).w;
+        if (calculatedProgress == -1)
+          // ignore: curly_braces_in_flow_control_structures
+          calculatedProgress = (fullWidth * (progress / 100));
 
         return Container(
           width: fullWidth,

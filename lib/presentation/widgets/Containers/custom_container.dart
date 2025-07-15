@@ -11,6 +11,8 @@ class CustomContainer extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? color;
+  final double? borderRadius;
+	final Color? borderColor;
 
   const CustomContainer({
     super.key,
@@ -22,6 +24,8 @@ class CustomContainer extends StatelessWidget {
     this.paddingY = 0,
     this.height,
     this.width,
+    this.borderRadius,
+		this.borderColor
   });
 
   @override
@@ -33,8 +37,8 @@ class CustomContainer extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: marginY!, horizontal: marginX!),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(40.r),
-        border: BoxBorder.all(color: AppColors.stroke.value, width: 2.w),
+        borderRadius: BorderRadius.circular(borderRadius ?? 40.r),
+        border: BoxBorder.all(color: borderColor ?? AppColors.stroke.value, width: 2.w),
       ),
       child: child,
     );

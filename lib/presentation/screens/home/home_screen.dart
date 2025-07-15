@@ -17,26 +17,26 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
-    CalendarScreen(),
-    Center(child: Text("Progreso")),
-    AddReminderTypeScreen(),
-    ProfileScreen(),
-  ];
+  final Map<int, List<dynamic>> _screens = {
+    0: [CalendarScreen(), 'Hoy'],
+    1: [Center(child: Text("Progreso")), 'Progreso'],
+    2: [AddReminderTypeScreen(), 'Agregar'],
+    3: [ProfileScreen(), 'Perfil'],
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Hoy',
+          _screens[_currentIndex]![1],
           style: TextStyle(
-            color: AppColors.textColor.value,
+            color: AppColors.primary.value,
             fontSize: FontScaler.fromSize(FontSize.xl3),
           ),
         ),
       ),
-      body: _screens[_currentIndex],
+      body: _screens[_currentIndex]![0],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         onTap: (idx) => setState(() => _currentIndex = idx),
