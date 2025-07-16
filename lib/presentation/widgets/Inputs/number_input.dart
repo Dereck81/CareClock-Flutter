@@ -1,7 +1,5 @@
 import 'package:careclock/config/app_colors.dart';
-import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/core/utils/number%20utils/number_range_input_formatter.dart';
-import 'package:careclock/core/utils/validators/number_validators.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
 import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:careclock/presentation/widgets/Inputs/custom_input.dart';
@@ -64,6 +62,7 @@ class NumberInput extends StatelessWidget {
     return next.toStringAsFixed(next % 1 == 0 ? 0 : 2);
   }
 
+  // ignore: unused_element
   ({Color borderColor, Color textColor}) _color(bool state) {
     if (state)
       // ignore: curly_braces_in_flow_control_structures

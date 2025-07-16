@@ -3,8 +3,6 @@ import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/presentation/widgets/Bars/progress_bar.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
-import 'package:careclock/presentation/widgets/Buttons/primary_button.dart';
-import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

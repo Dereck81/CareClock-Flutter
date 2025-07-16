@@ -8,12 +8,16 @@ class DateValidators {
     return null;
   }
 
+  static bool isTheSameDate(DateTime x, DateTime y) {
+    return x.year == y.year && x.month == y.month && x.day == y.day;
+  }
+
   static String? notPast(DateTime? value) {
     if (value == null) return null;
 
     final now = DateTime.now();
 
-    if (value.isBefore(now))
+    if (!isTheSameDate(value, now) && value.isBefore(now))
       // ignore: curly_braces_in_flow_control_structures
       return 'No puedes seleccionar una fecha pasada';
 

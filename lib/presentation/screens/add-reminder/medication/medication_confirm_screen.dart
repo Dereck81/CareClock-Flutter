@@ -143,7 +143,7 @@ class _MedicationConfirmScreenState extends State<MedicationConfirmScreen> {
             SecondaryButton(
               marginX: 15.w,
               width: double.infinity,
-              onPressed: () => AppGoRouter.medicationSuccess,
+              onPressed: () => context.push(AppGoRouter.medicationSuccess),
               text: 'Omitir',
             ),
             PrimaryButton(
