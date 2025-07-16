@@ -12,7 +12,7 @@ class NumberRangeInputFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-		if(newValue.text.trim().isEmpty) return newValue;
+    if (newValue.text.trim().isEmpty) return newValue;
 
     String? result = NumberValidators.range(newValue.text, min: min, max: max);
 

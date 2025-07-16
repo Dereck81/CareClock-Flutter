@@ -10,32 +10,36 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-
 class NumberInput extends StatelessWidget {
   final FormFieldSetter<String>? onSaved;
   final bool? enabled;
   final double? minValue;
   final double? maxValue;
   final TextEditingController controller;
-	final List<TextInputFormatter>? inputFormatters;
+  final List<TextInputFormatter>? inputFormatters;
   final FormFieldValidator<String>? validator;
-	final ValueChanged<String>? onChanged;
-	final double width;
+  final ValueChanged<String>? onChanged;
+  final double width;
 
   const NumberInput({
     super.key,
-		required this.width,
+    required this.width,
     required this.controller,
     this.onSaved,
     this.enabled,
     this.minValue,
     this.maxValue,
-		this.inputFormatters = const [],
-		this.validator,
-		this.onChanged
+    this.inputFormatters = const [],
+    this.validator,
+    this.onChanged,
   });
 
-	static String _increment(String? value, {double step = 1, double? min, double? max}) {
+  static String _increment(
+    String? value, {
+    double step = 1,
+    double? min,
+    double? max,
+  }) {
     final double current = double.tryParse(value ?? '') ?? 0;
     double next = current + step;
 
@@ -45,7 +49,12 @@ class NumberInput extends StatelessWidget {
     return next.toStringAsFixed(next % 1 == 0 ? 0 : 2);
   }
 
-  static String _decrement(String? value, {double step = 1, double? min, double? max}) {
+  static String _decrement(
+    String? value, {
+    double step = 1,
+    double? min,
+    double? max,
+  }) {
     final double current = double.tryParse(value ?? '') ?? 0;
     double next = current - step;
 
@@ -72,34 +81,44 @@ class NumberInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-		inputFormatters!.add(NumberRangeInputFormatter(min: minValue, max: maxValue));
-		
+    inputFormatters!.add(
+      NumberRangeInputFormatter(min: minValue, max: maxValue),
+    );
+
     return CustomContainer(
       child: Row(
         children: <Widget>[
           CustomButton(
             child: Icon(PhosphorIcons.caretLeft(), size: 35.sp),
             onPressed: () {
-							controller.text = _decrement(controller.text, max: maxValue, min: minValue);
-							if(onChanged != null) onChanged!(controller.text);
-						},
+              controller.text = _decrement(
+                controller.text,
+                max: maxValue,
+                min: minValue,
+              );
+              if (onChanged != null) onChanged!(controller.text);
+            },
           ),
           CustomInput(
             width: width,
-						borderSide: BorderSide.none,
+            borderSide: BorderSide.none,
             keyboardType: TextInputType.number,
-						inputFormatters: inputFormatters,
+            inputFormatters: inputFormatters,
             validator: validator,
-						controller: controller,
-						onSaved: onSaved,
-						onChanged: onChanged,
+            controller: controller,
+            onSaved: onSaved,
+            onChanged: onChanged,
           ),
           CustomButton(
             child: Icon(PhosphorIcons.caretRight(), size: 35.sp),
-						onPressed: () {
-							controller.text = _increment(controller.text, max: maxValue, min: minValue);
-							if(onChanged != null) onChanged!(controller.text);
-						},
+            onPressed: () {
+              controller.text = _increment(
+                controller.text,
+                max: maxValue,
+                min: minValue,
+              );
+              if (onChanged != null) onChanged!(controller.text);
+            },
           ),
         ],
       ),

@@ -23,7 +23,8 @@ class CareClock extends StatelessWidget {
           routerConfig: AppGoRouter.appRouter(),
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.system,
-          darkTheme: AppTheme.getLightTheme(),//darkTheme: AppTheme.getDarkTheme(),
+          darkTheme:
+              AppTheme.getLightTheme(), //darkTheme: AppTheme.getDarkTheme(),
           theme: AppTheme.getLightTheme(),
         );
       },

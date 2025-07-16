@@ -31,7 +31,7 @@ class AppTheme {
     );
   }
 
-	static ThemeData getDatePickerDarkTheme(context) {
+  static ThemeData getDatePickerDarkTheme(context) {
     return Theme.of(context).copyWith(
       colorScheme: Theme.of(context).colorScheme.copyWith(
         primary: AppColors.primary.value,

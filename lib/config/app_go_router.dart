@@ -1,6 +1,7 @@
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_confirm_screen.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_frequency_screen.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_search_screen.dart';
+import 'package:careclock/presentation/screens/add-reminder/medication/medication_success_screen.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_time_screen.dart';
 import 'package:careclock/presentation/screens/home/home_screen.dart';
 import 'package:careclock/presentation/screens/login/auth_selection_screen.dart';
@@ -17,6 +18,7 @@ class AppGoRouter {
       '/add-reminder/medication-frequency';
   static final String medicationTime = '/add-reminder/medication-time';
   static final String medicationConfirm = '/add-reminder/medication-confirm';
+  static final String medicationSuccess = '/add-reminder/medication-success';
 
   static CustomTransitionPage _fadeTransitionGoRouter(
     BuildContext context,
@@ -92,6 +94,15 @@ class AppGoRouter {
             context,
             state,
             const MedicationConfirmScreen(),
+          ),
+        ),
+        GoRoute(
+          path: AppGoRouter.medicationSuccess,
+          name: 'medication-success',
+          pageBuilder: (context, state) => _fadeTransitionGoRouter(
+            context,
+            state,
+            const MedicationSuccessScreen(),
           ),
         ),
       ],
