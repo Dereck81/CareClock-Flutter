@@ -1,3 +1,4 @@
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_confirm_screen.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_frequency_screen.dart';
 import 'package:careclock/presentation/screens/add-reminder/medication/medication_search_screen.dart';
@@ -72,38 +73,50 @@ class AppGoRouter {
         GoRoute(
           path: AppGoRouter.medicationFrequency,
           name: 'medication-frequency',
-          pageBuilder: (context, state) => _fadeTransitionGoRouter(
-            context,
-            state,
-            const MedicationFrequencyScreen(),
-          ),
+          pageBuilder: (context, state) {
+            final medication = state.extra as MedicationEntity;
+            return _fadeTransitionGoRouter(
+              context,
+              state,
+              MedicationFrequencyScreen(medicationEntity: medication),
+            );
+          },
         ),
         GoRoute(
           path: AppGoRouter.medicationTime,
           name: 'medication-time',
-          pageBuilder: (context, state) => _fadeTransitionGoRouter(
-            context,
-            state,
-            const MedicationTimeScreen(),
-          ),
+          pageBuilder: (context, state) {
+            final medication = state.extra as MedicationEntity;
+            return _fadeTransitionGoRouter(
+              context,
+              state,
+              MedicationTimeScreen(medicationEntity: medication),
+            );
+          },
         ),
         GoRoute(
           path: AppGoRouter.medicationConfirm,
           name: 'medication-confirm',
-          pageBuilder: (context, state) => _fadeTransitionGoRouter(
-            context,
-            state,
-            const MedicationConfirmScreen(),
-          ),
+          pageBuilder: (context, state) {
+            final MedicationEntity medication = state.extra as MedicationEntity;
+            return _fadeTransitionGoRouter(
+              context,
+              state,
+              MedicationConfirmScreen(medicationEntity: medication),
+            );
+          },
         ),
         GoRoute(
           path: AppGoRouter.medicationSuccess,
           name: 'medication-success',
-          pageBuilder: (context, state) => _fadeTransitionGoRouter(
-            context,
-            state,
-            const MedicationSuccessScreen(),
-          ),
+          pageBuilder: (context, state) {
+            final MedicationEntity medication = state.extra as MedicationEntity;
+            return _fadeTransitionGoRouter(
+              context,
+              state,
+              MedicationSuccessScreen(medicationEntity: medication),
+            );
+          },
         ),
       ],
     );

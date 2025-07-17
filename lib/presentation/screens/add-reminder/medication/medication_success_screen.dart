@@ -1,18 +1,30 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Buttons/primary_button.dart';
 import 'package:careclock/presentation/widgets/Buttons/secondary_button.dart';
+import 'package:careclock/providers/medication_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-class MedicationSuccessScreen extends StatelessWidget {
-  const MedicationSuccessScreen({super.key});
+class MedicationSuccessScreen extends ConsumerWidget {
+  final MedicationEntity medicationEntity;
+  const MedicationSuccessScreen({super.key, required this.medicationEntity});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.read(medicationListProvider.notifier);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (medicationEntity.isCompleted) {
+        controller.addMedication(medicationEntity);
+      }
+    });
+
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(

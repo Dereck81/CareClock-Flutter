@@ -1,6 +1,7 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
 import 'package:careclock/presentation/widgets/Inputs/custom_input.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,10 @@ class _MedicationSearchScreenState extends State<MedicationSearchScreen> {
                       borderColor: AppColors.stroke.value,
                       borderWidth: 2.w,
                       onPressed: () {
-                        context.push(AppGoRouter.medicationFrequency);
+                        context.push(
+                          AppGoRouter.medicationFrequency,
+                          extra: MedicationEntity(medication: 'Paracetamol'),
+                        );
                       },
                       marginX: 15.w,
                       paddingX: 10.w,

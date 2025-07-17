@@ -1,6 +1,7 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Bars/progress_bar.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,8 @@ import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class MedicationFrequencyScreen extends StatelessWidget {
-  const MedicationFrequencyScreen({super.key});
+  final MedicationEntity medicationEntity;
+  const MedicationFrequencyScreen({super.key, required this.medicationEntity});
 
   CustomButton _button(String title, String content, void Function() onPress) {
     return CustomButton(
@@ -79,7 +81,10 @@ class MedicationFrequencyScreen extends StatelessWidget {
                   'Una vez al día',
                   'Elige la hora para tomar tu medicación.',
                   () {
-                    context.push(AppGoRouter.medicationTime);
+                    context.push(
+                      AppGoRouter.medicationTime,
+                      extra: medicationEntity,
+                    );
                   },
                 ),
                 _button(

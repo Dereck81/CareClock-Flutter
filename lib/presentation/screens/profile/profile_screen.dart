@@ -1,7 +1,6 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/presentation/widgets/Cards/family/family_card.dart';
-import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -63,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                 '93%',
                 style: TextStyle(
                   color: Color(0XFF343434),
-                  fontSize: FontScaler.fromSize(FontSize.xl4),
+                  fontSize: FontScaler.fromSize(FontSize.xl3),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -71,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                 'de adherencia esta semana',
                 style: TextStyle(
                   color: Color(0XFF343434),
-                  fontSize: FontScaler.fromSize(FontSize.xl),
+                  fontSize: FontScaler.fromSize(FontSize.lg),
                   fontWeight: FontWeight.bold,
                 ),
               ),

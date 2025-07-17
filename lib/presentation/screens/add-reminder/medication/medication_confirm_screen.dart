@@ -2,6 +2,7 @@ import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/core/utils/number%20utils/no_leading_zero_formatter.dart';
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Bars/progress_bar.dart';
 import 'package:careclock/presentation/widgets/Buttons/primary_button.dart';
 import 'package:careclock/presentation/widgets/Buttons/secondary_button.dart';
@@ -13,7 +14,8 @@ import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class MedicationConfirmScreen extends StatefulWidget {
-  const MedicationConfirmScreen({super.key});
+  final MedicationEntity medicationEntity;
+  const MedicationConfirmScreen({super.key, required this.medicationEntity});
 
   @override
   State<MedicationConfirmScreen> createState() =>
@@ -143,7 +145,10 @@ class _MedicationConfirmScreenState extends State<MedicationConfirmScreen> {
             SecondaryButton(
               marginX: 15.w,
               width: double.infinity,
-              onPressed: () => context.push(AppGoRouter.medicationSuccess),
+              onPressed: () => context.push(
+                AppGoRouter.medicationSuccess,
+                extra: widget.medicationEntity,
+              ),
               text: 'Omitir',
             ),
             PrimaryButton(
@@ -154,7 +159,10 @@ class _MedicationConfirmScreenState extends State<MedicationConfirmScreen> {
                   _formKey.currentState!.save();
                   print(_stock);
                   print(_notifyWhen);
-                  context.push(AppGoRouter.medicationSuccess);
+                  context.push(
+                    AppGoRouter.medicationSuccess,
+                    extra: widget.medicationEntity,
+                  );
                 }
               },
               text: 'Continuar',

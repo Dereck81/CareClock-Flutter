@@ -8,7 +8,7 @@ class DateValidators {
     return null;
   }
 
-  static bool _isTheSameDate(DateTime x, DateTime y) {
+  static bool isTheSameDate(DateTime x, DateTime y) {
     return x.year == y.year && x.month == y.month && x.day == y.day;
   }
 
@@ -17,7 +17,7 @@ class DateValidators {
 
     final now = DateTime.now();
 
-    if (!_isTheSameDate(value, now) && value.isBefore(now))
+    if (!isTheSameDate(value, now) && value.isBefore(now))
       // ignore: curly_braces_in_flow_control_structures
       return 'No puedes seleccionar una fecha pasada';
 

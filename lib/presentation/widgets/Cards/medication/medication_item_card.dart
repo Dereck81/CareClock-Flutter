@@ -1,5 +1,6 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/font_scaler.dart';
+import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Buttons/custom_button.dart';
 import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,13 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 enum MedicationItemCardStatus { overdue, pending, taken }
 
 class MedicationItemCard extends StatelessWidget {
+  final MedicationEntity medication;
   final MedicationItemCardStatus status;
 
   const MedicationItemCard({
     super.key,
-    this.status = MedicationItemCardStatus.overdue,
+    required this.medication,
+    this.status = MedicationItemCardStatus.pending,
   });
 
   ({
@@ -56,7 +59,7 @@ class MedicationItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final (:iconData, :iconColor, :borderColor, :backgroundColor, :textColor) =
         _getIconAndColor(status);
-
+    String medication = this.medication.medication!;
     return CustomButton(
       onPressed: () => {},
       child: CustomContainer(
@@ -82,7 +85,7 @@ class MedicationItemCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'Paracetamol, Tabletas',
+                  medication,
                   style: TextStyle(
                     color: textColor,
                     fontSize: FontScaler.fromSize(FontSize.lg),
@@ -93,7 +96,7 @@ class MedicationItemCard extends StatelessWidget {
                   spacing: 5.w,
                   children: <Widget>[
                     Text(
-                      '2',
+                      '1',
                       style: TextStyle(
                         color: textColor,
                         fontSize: FontScaler.fromSize(FontSize.bs),
