@@ -1,6 +1,5 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/font_scaler.dart';
-import 'package:careclock/core/utils/validators/date_validators.dart';
 import 'package:careclock/domain/entities/medication.dart';
 import 'package:careclock/presentation/widgets/Cards/medication/medication_item_card.dart';
 import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
@@ -13,10 +12,10 @@ class TimeMedicationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isTheSameDate = DateValidators.isTheSameDate(
-      medicationEntity.date!,
-      DateTime.now(),
-    );
+    //final isTheSameDate = DateValidators.isTheSameDate(
+    //  medicationEntity.date!,
+    //  DateTime.now(),
+    //);
 
     return CustomContainer(
       marginX: 15.w,

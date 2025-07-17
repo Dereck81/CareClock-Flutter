@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:careclock/infraestructure/services/awesome_notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

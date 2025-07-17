@@ -1,10 +1,12 @@
 import 'package:careclock/config/app_colors.dart';
+import 'package:careclock/config/app_go_router.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/presentation/widgets/Buttons/primary_button.dart';
 import 'package:careclock/presentation/widgets/Cards/family/family_item.dart';
 import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class FamilyCard extends StatelessWidget {
   const FamilyCard({super.key});
@@ -33,7 +35,7 @@ class FamilyCard extends StatelessWidget {
           PrimaryButton(
             marginY: 10.h,
             width: double.infinity,
-            onPressed: () {},
+            onPressed: () => context.push(AppGoRouter.connectContactQR),
             text: 'Conectar',
           ),
         ],

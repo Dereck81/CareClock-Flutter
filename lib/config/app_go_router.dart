@@ -7,6 +7,9 @@ import 'package:careclock/presentation/screens/add-reminder/medication/medicatio
 import 'package:careclock/presentation/screens/home/home_screen.dart';
 import 'package:careclock/presentation/screens/login/auth_selection_screen.dart';
 import 'package:careclock/presentation/screens/login/email_input_screen.dart';
+import 'package:careclock/presentation/screens/profile/confirm_connection_screen.dart';
+import 'package:careclock/presentation/screens/profile/connect_contact_qr_screen.dart';
+import 'package:careclock/presentation/screens/profile/connection_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,6 +23,10 @@ class AppGoRouter {
   static final String medicationTime = '/add-reminder/medication-time';
   static final String medicationConfirm = '/add-reminder/medication-confirm';
   static final String medicationSuccess = '/add-reminder/medication-success';
+  //profile
+  static final String connectContactQR = '/profile/connect-contact-qr';
+  static final String confirmConnection = '/profile/confirm-connection';
+  static final String connectionSuccess = '/profile/connection-success';
 
   static CustomTransitionPage _fadeTransitionGoRouter(
     BuildContext context,
@@ -117,6 +124,34 @@ class AppGoRouter {
               MedicationSuccessScreen(medicationEntity: medication),
             );
           },
+        ),
+        //Profile
+        GoRoute(
+          path: AppGoRouter.connectContactQR,
+          name: 'connect-contact-qr',
+          pageBuilder: (context, state) => _fadeTransitionGoRouter(
+            context,
+            state,
+            const ConnectContactQrScreen(),
+          ),
+        ),
+        GoRoute(
+          path: AppGoRouter.confirmConnection,
+          name: 'confirm-connection',
+          pageBuilder: (context, state) => _fadeTransitionGoRouter(
+            context,
+            state,
+            const ConfirmConnectionScreen(),
+          ),
+        ),
+        GoRoute(
+          path: AppGoRouter.connectionSuccess,
+          name: 'connection-success',
+          pageBuilder: (context, state) => _fadeTransitionGoRouter(
+            context,
+            state,
+            const ConnectionSuccessScreen(),
+          ),
         ),
       ],
     );
