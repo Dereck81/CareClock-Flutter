@@ -1,6 +1,7 @@
 import 'package:careclock/config/app_colors.dart';
 import 'package:careclock/config/font_scaler.dart';
 import 'package:careclock/presentation/widgets/Cards/family/family_card.dart';
+import 'package:careclock/presentation/widgets/Containers/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -43,6 +44,40 @@ class ProfileScreen extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         FamilyCard(),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+          margin: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+          width: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25.r),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color(0XFF7FFF63), Color(0XFF007200)],
+            ),
+          ),
+          child: Row(
+            spacing: 10.w,
+            children: <Widget>[
+              Text(
+                '93%',
+                style: TextStyle(
+                  color: Color(0XFF343434),
+                  fontSize: FontScaler.fromSize(FontSize.xl4),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'de adherencia esta semana',
+                style: TextStyle(
+                  color: Color(0XFF343434),
+                  fontSize: FontScaler.fromSize(FontSize.xl),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
